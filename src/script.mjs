@@ -20,7 +20,8 @@
                 btn.addEventListener('click', () => {
                     // console.log( btn.innerText);
                     let value = btn.innerText;
-                    if (value == "AC"){
+                    try{
+                        if (value == "AC"){
                         currentval="";
                         display.value=currentval;
                     }else if(value == "="){
@@ -29,6 +30,12 @@
                     else{
                     currentval += value;
                     display.value = currentval;
+                    }
+                    }
+                    catch(error){
+                        console.error(error);
+                        currentval="ERROR";
+                        display.value=currentval;
                     }
                 });
             });
